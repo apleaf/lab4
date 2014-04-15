@@ -31,3 +31,4 @@ AT 50 ns the instruction register has the number 7, which means it operating the
 
 225ns
 
+The Instruction Register read in 'b', which is the op code for Jump Negative (JN).  If the accumulator value is negative at the time (in this case it was, 1101), then  it jumps to the specified address. At 205 ns, ,marlold is true, so it loads the value from the accumulator ( 2 )  into marlo, and at 215ns marhild is true, so it loads the value of the accumualtor ( 0 ) into marhi. because of this, we know that are new address is going to be 02.  At 225ns, jmpsel = '1', and then our PC value jumps to the location '02'.
