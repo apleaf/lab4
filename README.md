@@ -14,7 +14,7 @@ when "011" =>Result(0) <= Accumulator(1);
 Adding this solved my problem.  I then went through each of the OpSel values with their associated Accumlator and Data values and the outputs were correct.
 
 
-DATAPATH SCREENSHOT
+DATAPATH 
 
 To begin coding the datapath, we had to declare an ALU component.  To figure out what to do next, I looked at the example Captain Silva provided to us, the Program Counter, to see what was going to be required for the other parts.  After getting a basic understanding of what was going on, I used the diagram provided in the Lab to figure out what went into each component i.e (the IR needed a reset, clock, Data, and IRLd.  Doing this, I was successfuly abel to code each part of the datapath.  To check my datapth simulation I compared it against the 50 ns of code that captain silva provided, and my testbench matched.
 ![alt text](http://i59.tinypic.com/e1phi.png)
@@ -32,3 +32,8 @@ AT 50 ns the instruction register has the number 7, which means it operating the
 225ns
 
 The Instruction Register read in 'b', which is the op code for Jump Negative (JN).  If the accumulator value is negative at the time (in this case it was, 1101), then  it jumps to the specified address. At 205 ns, ,marlold is true, so it loads the value from the accumulator ( 2 )  into marlo, and at 215ns marhild is true, so it loads the value of the accumualtor ( 0 ) into marhi. because of this, we know that are new address is going to be 02.  At 225ns, jmpsel = '1', and then our PC value jumps to the location '02'.
+
+
+BELOW IS THE PRISM PROGRAM LISTING
+
+![alt text](http://i57.tinypic.com/eu12km.png)
