@@ -1,0 +1,256 @@
+	CheckInput	   00	   5	IN	0		N	1	N
+		   01	   0				Y	0	N
+		   02	   B	JN	SubOnes		N	2	N
+		   03	   8				Y	0	N
+		   04	   3				Y	0	N
+		   05	   9	JMP	AddOnes		N	2	N
+		   06	   8				Y	0	N
+		   07	   0				Y	0	N
+	AddOnes	   08	   F	LDAD	MemOne		N	2	Y
+		   09	   0				Y	0	N
+		   0A	   B				Y	0	N
+		   0B	   6	ADDI	1		N	1	Y
+		   0C	   1				Y	0	N
+		   0D	   6	ADDI	6		N	1	N
+		   0E	   6				Y	0	N
+		   0F	   A	JZ	SetOneAdd		N	2	N
+		   10	   C				Y	0	N
+		   11	   1				Y	0	N
+		   12	   6	ADDI	A		N	1	N
+		   13	   A				Y	0	N
+		   14	   4	OUT	1		N	1	Y
+		   15	   1				Y	0	N
+		   16	   D	STA	MemOne		N	2	Y
+		   17	   0				Y	0	N
+		   18	   B				Y	0	N
+		   19	   9	JMP	CheckInput		N	2	Y
+		   1A	   0				Y	0	N
+		   1B	   0				Y	0	N
+	SetOneAdd	   1C	   D	STA	MemOne		N	2	Y
+		   1D	   0				Y	0	N
+		   1E	   B				Y	0	N
+		   1F	   4	OUT	1		N	1	N
+		   20	   1				Y	0	N
+		   21	   F	LDAD	MemTen		N	2	Y
+		   22	   1				Y	0	N
+		   23	   B				Y	0	N
+		   24	   6	ADDI	1		N	1	Y
+		   25	   1				Y	0	N
+		   26	   6	ADDI	6		N	1	N
+		   27	   6				Y	0	N
+		   28	   A	JZ	SetTenAdd		N	2	Y
+		   29	   0				Y	0	N
+		   2A	   3				Y	0	N
+		   2B	   6	ADDI	A		N	1	N
+		   2C	   A				Y	0	N
+		   2D	   4	OUT	0		N	1	N
+		   2E	   0				Y	0	N
+		   2F	   0	NOP			N	0	N
+	SetTenAdd	   30	   D	STA	MemTen		N	2	Y
+		   31	   1				Y	0	N
+		   32	   B				Y	0	N
+		   33	   4	OUT	0		N	1	N
+		   34	   0				Y	0	N
+		   35	   9	JMP	CheckInput		N	2	Y
+		   36	   0				Y	0	N
+		   37	   0				Y	0	N
+	SubOnes	   38	   F	LDAD	MemOne		N	2	Y
+		   39	   0				Y	0	N
+		   3A	   B				Y	0	N
+		   3B	   6	ADDI	F		N	1	Y
+		   3C	   F				Y	0	N
+		   3D	   A	JZ	SetOneNeg		N	2	N
+		   3E	   8				Y	0	N
+		   3F	   4				Y	0	N
+		   40	   4	OUT	1		N	1	Y
+		   41	   1				Y	0	N
+		   42	   D	STA	MemOne		N	2	Y
+		   43	   0				Y	0	N
+		   44	   B				Y	0	N
+		   45	   9	JMP	CheckInput		N	2	Y
+		   46	   0				Y	0	N
+		   47	   0				Y	0	N
+	SetOneNeg	   48	   4	OUT	1		N	1	Y
+		   49	   1				Y	0	N
+		   4A	   6	ADDI	9		N	1	Y
+		   4B	   9				Y	0	N
+		   4C	   D	STA	MemOne		N	2	Y
+		   4D	   0				Y	0	N
+		   4E	   B				Y	0	N
+		   4F	   4	OUT	1		N	1	N
+		   50	   1				Y	0	N
+		   51	   F	LDAD	MemTen		N	2	Y
+		   52	   1				Y	0	N
+		   53	   B				Y	0	N
+		   54	   6	ADDI	F		N	1	Y
+		   55	   F				Y	0	N
+		   56	   A	JZ	SetTenNeg		N	2	Y
+		   57	   1				Y	0	N
+		   58	   6				Y	0	N
+		   59	   4	OUT	0		N	1	N
+		   5A	   0				Y	0	N
+		   5B	   D	STA	MemTen		N	2	N
+		   5C	   1				Y	0	N
+		   5D	   B				Y	0	N
+		   5E	   9	JMP	CheckInput		N	2	N
+		   5F	   0				Y	0	N
+		   60	   0				Y	0	N
+	SetTenNeg	   61	   4	OUT	0		N	1	Y
+		   62	   0				Y	0	N
+		   63	   6	ADDI	9		N	1	Y
+		   64	   9				Y	0	N
+		   65	   D	STA	MemTen		N	2	Y
+		   66	   1				Y	0	N
+		   67	   B				Y	0	N
+		   68	   4	OUT	0		N	1	Y
+		   69	   0				Y	0	N
+		   6A	   9	JMP	CheckInput		N	2	Y
+		   6B	   0				Y	0	N
+		   6C	   0				Y	0	N
+		   6D	   0	NOP			N	0	Y
+		   6E	   0	NOP			N	0	Y
+		   6F	   0	NOP			N	0	Y
+		   70	   0	NOP			N	0	Y
+		   71	   0	NOP			N	0	Y
+		   72	   0	NOP			N	0	Y
+		   73	   0	NOP			N	0	Y
+		   74	   0	NOP			N	0	Y
+		   75	   0	NOP			N	0	Y
+		   76	   0	NOP			N	0	Y
+		   77	   0	NOP			N	0	Y
+		   78	   0	NOP			N	0	Y
+		   79	   0	NOP			N	0	Y
+		   7A	   0	NOP			N	0	Y
+		   7B	   0	NOP			N	0	Y
+		   7C	   0	NOP			N	0	Y
+		   7D	   0	NOP			N	0	Y
+		   7E	   0	NOP			N	0	Y
+		   7F	   0	NOP			N	0	Y
+		   80	   0	NOP			N	0	Y
+		   81	   0	NOP			N	0	Y
+		   82	   0	NOP			N	0	Y
+		   83	   0	NOP			N	0	Y
+		   84	   0	NOP			N	0	Y
+		   85	   0	NOP			N	0	Y
+		   86	   0	NOP			N	0	Y
+		   87	   0	NOP			N	0	Y
+		   88	   0	NOP			N	0	Y
+		   89	   0	NOP			N	0	Y
+		   8A	   0	NOP			N	0	Y
+		   8B	   0	NOP			N	0	Y
+		   8C	   0	NOP			N	0	Y
+		   8D	   0	NOP			N	0	Y
+		   8E	   0	NOP			N	0	Y
+		   8F	   0	NOP			N	0	Y
+		   90	   0	NOP			N	0	Y
+		   91	   0	NOP			N	0	Y
+		   92	   0	NOP			N	0	Y
+		   93	   0	NOP			N	0	Y
+		   94	   0	NOP			N	0	Y
+		   95	   0	NOP			N	0	Y
+		   96	   0	NOP			N	0	Y
+		   97	   0	NOP			N	0	Y
+		   98	   0	NOP			N	0	Y
+		   99	   0	NOP			N	0	Y
+		   9A	   0	NOP			N	0	Y
+		   9B	   0	NOP			N	0	Y
+		   9C	   0	NOP			N	0	Y
+		   9D	   0	NOP			N	0	Y
+		   9E	   0	NOP			N	0	Y
+		   9F	   0	NOP			N	0	Y
+		   A0	   0	NOP			N	0	Y
+		   A1	   0	NOP			N	0	Y
+		   A2	   0	NOP			N	0	Y
+		   A3	   0	NOP			N	0	Y
+		   A4	   0	NOP			N	0	Y
+		   A5	   0	NOP			N	0	Y
+		   A6	   0	NOP			N	0	Y
+		   A7	   0	NOP			N	0	Y
+		   A8	   0	NOP			N	0	Y
+		   A9	   0	NOP			N	0	Y
+		   AA	   0	NOP			N	0	Y
+		   AB	   0	NOP			N	0	Y
+		   AC	   0	NOP			N	0	Y
+		   AD	   0	NOP			N	0	Y
+		   AE	   0	NOP			N	0	Y
+		   AF	   0	NOP			N	0	N
+	MemOne	   B0	   8	
+	MemTen	   B1	   1	
+		   B2	   0	
+		   B3	   0	
+		   B4	   0	
+		   B5	   0	
+		   B6	   0	
+		   B7	   0	
+		   B8	   0	
+		   B9	   0	
+		   BA	   0	
+		   BB	   0	
+		   BC	   0	
+		   BD	   0	
+		   BE	   0	
+		   BF	   0	
+		   C0	   0	
+		   C1	   0	
+		   C2	   0	
+		   C3	   0	
+		   C4	   0	
+		   C5	   0	
+		   C6	   0	
+		   C7	   0	
+		   C8	   0	
+		   C9	   0	
+		   CA	   0	
+		   CB	   0	
+		   CC	   0	
+		   CD	   0	
+		   CE	   0	
+		   CF	   0	
+		   D0	   0	
+		   D1	   0	
+		   D2	   0	
+		   D3	   0	
+		   D4	   0	
+		   D5	   0	
+		   D6	   0	
+		   D7	   0	
+		   D8	   0	
+		   D9	   0	
+		   DA	   0	
+		   DB	   0	
+		   DC	   0	
+		   DD	   0	
+		   DE	   0	
+		   DF	   0	
+		   E0	   0	
+		   E1	   0	
+		   E2	   0	
+		   E3	   0	
+		   E4	   0	
+		   E5	   0	
+		   E6	   0	
+		   E7	   0	
+		   E8	   0	
+		   E9	   0	
+		   EA	   0	
+		   EB	   0	
+		   EC	   0	
+		   ED	   0	
+		   EE	   0	
+		   EF	   0	
+		   F0	   0	
+		   F1	   0	
+		   F2	   0	
+		   F3	   0	
+		   F4	   0	
+		   F5	   0	
+		   F6	   0	
+		   F7	   0	
+		   F8	   0	
+		   F9	   0	
+		   FA	   0	
+		   FB	   0	
+		   FC	   0	
+		   FD	   0	
+		   FE	   0	
+		   FF	   0	
